@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20221009 21:33:05.490" rpa="true" schemaversion="3">
+<suite id="s1" name="Robocorp-Certificate" source="C:\robocorp-certificate">
+<suite id="s1-s1" name="Tests" source="C:\robocorp-certificate\tests">
+<suite id="s1-s1-s1" name="Tasks" source="C:\robocorp-certificate\tests\tasks.robot">
+<test id="s1-s1-s1-t1" name="Acess form Robot" line="35">
+<kw name="Open Robot Industries">
+<kw name="Open Chrome Browser" library="RPA.Browser.Selenium">
+<arg>${url}</arg>
+<doc>Open Chrome browser. See ``Open Available Browser`` for
+descriptions of arguments.</doc>
+<msg timestamp="20221009 21:33:06.226" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20221009 21:33:07.228" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20221009 21:33:07.230" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20221009 21:33:07.231" level="INFO">Opening url 'https://robotsparebinindustries.com/#/robot-order'</msg>
+<status status="PASS" starttime="20221009 21:33:06.225" endtime="20221009 21:33:08.123"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${disable_alert}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221009 21:33:08.124" level="INFO">Clicking element '//button[contains(text(),'OK')]'.</msg>
+<status status="PASS" starttime="20221009 21:33:08.123" endtime="20221009 21:33:08.165"/>
+</kw>
+<kw name="Maximize Browser Window" library="RPA.Browser.Selenium">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221009 21:33:08.165" endtime="20221009 21:33:08.291"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:06.224" endtime="20221009 21:33:08.292"/>
+</kw>
+<kw name="Read the Excel File">
+<kw name="Read table from CSV" library="RPA.Tables">
+<var>${orders}</var>
+<arg>C:\\robocorp-certificate\\tests/orders.csv</arg>
+<arg>header=True</arg>
+<doc>Read a CSV file as a table.</doc>
+<msg timestamp="20221009 21:33:08.302" level="INFO">${orders} = Table(columns=['Order number', 'Head', 'Body', 'Legs', 'Address'], rows=20)</msg>
+<status status="PASS" starttime="20221009 21:33:08.295" endtime="20221009 21:33:08.305"/>
+</kw>
+<for flavor="IN">
+<var>${robot}</var>
+<value>@{orders}</value>
+<iter>
+<var name="${robot}">{'Order number': '1', 'Head': '1', 'Body': '2', 'Legs': '3', 'Address': 'Address 123'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.307" level="INFO">{'Order number': '1', 'Head': '1', 'Body': '2', 'Legs': '3', 'Address': 'Address 123'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.307" endtime="20221009 21:33:08.309"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.306" endtime="20221009 21:33:08.310"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '2', 'Head': '4', 'Body': '1', 'Legs': '5', 'Address': 'Address 456'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.311" level="INFO">{'Order number': '2', 'Head': '4', 'Body': '1', 'Legs': '5', 'Address': 'Address 456'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.310" endtime="20221009 21:33:08.314"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.310" endtime="20221009 21:33:08.314"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '3', 'Head': '6', 'Body': '2', 'Legs': '3', 'Address': 'Address 789'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.315" level="INFO">{'Order number': '3', 'Head': '6', 'Body': '2', 'Legs': '3', 'Address': 'Address 789'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.314" endtime="20221009 21:33:08.317"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.314" endtime="20221009 21:33:08.317"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '4', 'Head': '2', 'Body': '3', 'Legs': '2', 'Address': 'Address 1'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.318" level="INFO">{'Order number': '4', 'Head': '2', 'Body': '3', 'Legs': '2', 'Address': 'Address 1'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.317" endtime="20221009 21:33:08.319"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.317" endtime="20221009 21:33:08.319"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '5', 'Head': '3', 'Body': '5', 'Legs': '1', 'Address': 'Address 2'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.319" level="INFO">{'Order number': '5', 'Head': '3', 'Body': '5', 'Legs': '1', 'Address': 'Address 2'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.319" endtime="20221009 21:33:08.320"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.319" endtime="20221009 21:33:08.320"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '6', 'Head': '1', 'Body': '6', 'Legs': '6', 'Address': 'Address 3'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.321" level="INFO">{'Order number': '6', 'Head': '1', 'Body': '6', 'Legs': '6', 'Address': 'Address 3'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.321" endtime="20221009 21:33:08.322"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.320" endtime="20221009 21:33:08.322"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '7', 'Head': '5', 'Body': '1', 'Legs': '5', 'Address': 'Address 4'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.322" level="INFO">{'Order number': '7', 'Head': '5', 'Body': '1', 'Legs': '5', 'Address': 'Address 4'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.322" endtime="20221009 21:33:08.324"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.322" endtime="20221009 21:33:08.324"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '8', 'Head': '2', 'Body': '3', 'Legs': '3', 'Address': 'Address 5'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.327" level="INFO">{'Order number': '8', 'Head': '2', 'Body': '3', 'Legs': '3', 'Address': 'Address 5'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.325" endtime="20221009 21:33:08.330"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.325" endtime="20221009 21:33:08.331"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '9', 'Head': '3', 'Body': '2', 'Legs': '2', 'Address': 'Address 6'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.332" level="INFO">{'Order number': '9', 'Head': '3', 'Body': '2', 'Legs': '2', 'Address': 'Address 6'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.331" endtime="20221009 21:33:08.333"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.331" endtime="20221009 21:33:08.333"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '10', 'Head': '4', 'Body': '4', 'Legs': '2', 'Address': 'Address 7'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.334" level="INFO">{'Order number': '10', 'Head': '4', 'Body': '4', 'Legs': '2', 'Address': 'Address 7'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.334" endtime="20221009 21:33:08.336"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.334" endtime="20221009 21:33:08.336"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '11', 'Head': '6', 'Body': '6', 'Legs': '1', 'Address': 'Address 8'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.337" level="INFO">{'Order number': '11', 'Head': '6', 'Body': '6', 'Legs': '1', 'Address': 'Address 8'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.336" endtime="20221009 21:33:08.338"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.336" endtime="20221009 21:33:08.339"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '12', 'Head': '1', 'Body': '3', 'Legs': '3', 'Address': 'Address 9'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.340" level="INFO">{'Order number': '12', 'Head': '1', 'Body': '3', 'Legs': '3', 'Address': 'Address 9'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.339" endtime="20221009 21:33:08.341"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.339" endtime="20221009 21:33:08.342"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '13', 'Head': '1', 'Body': '5', 'Legs': '4', 'Address': 'Address A'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.342" level="INFO">{'Order number': '13', 'Head': '1', 'Body': '5', 'Legs': '4', 'Address': 'Address A'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.342" endtime="20221009 21:33:08.344"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.342" endtime="20221009 21:33:08.345"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '14', 'Head': '3', 'Body': '1', 'Legs': '5', 'Address': 'Address B'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.349" level="INFO">{'Order number': '14', 'Head': '3', 'Body': '1', 'Legs': '5', 'Address': 'Address B'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.348" endtime="20221009 21:33:08.351"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.346" endtime="20221009 21:33:08.351"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '15', 'Head': '3', 'Body': '2', 'Legs': '6', 'Address': 'Address C'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.352" level="INFO">{'Order number': '15', 'Head': '3', 'Body': '2', 'Legs': '6', 'Address': 'Address C'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.351" endtime="20221009 21:33:08.353"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.351" endtime="20221009 21:33:08.353"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '16', 'Head': '6', 'Body': '3', 'Legs': '6', 'Address': 'Address D'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.354" level="INFO">{'Order number': '16', 'Head': '6', 'Body': '3', 'Legs': '6', 'Address': 'Address D'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.354" endtime="20221009 21:33:08.355"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.353" endtime="20221009 21:33:08.356"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '17', 'Head': '5', 'Body': '4', 'Legs': '1', 'Address': 'Address E'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.357" level="INFO">{'Order number': '17', 'Head': '5', 'Body': '4', 'Legs': '1', 'Address': 'Address E'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.356" endtime="20221009 21:33:08.358"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.356" endtime="20221009 21:33:08.359"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '18', 'Head': '2', 'Body': '5', 'Legs': '1', 'Address': 'Address F'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.360" level="INFO">{'Order number': '18', 'Head': '2', 'Body': '5', 'Legs': '1', 'Address': 'Address F'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.359" endtime="20221009 21:33:08.362"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.359" endtime="20221009 21:33:08.362"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '19', 'Head': '4', 'Body': '6', 'Legs': '2', 'Address': 'Address G'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.364" level="INFO">{'Order number': '19', 'Head': '4', 'Body': '6', 'Legs': '2', 'Address': 'Address G'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.364" endtime="20221009 21:33:08.366"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.363" endtime="20221009 21:33:08.367"/>
+</iter>
+<iter>
+<var name="${robot}">{'Order number': '20', 'Head': '1', 'Body': '1', 'Legs': '5', 'Address': 'Address H'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${robot}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221009 21:33:08.368" level="INFO">{'Order number': '20', 'Head': '1', 'Body': '1', 'Legs': '5', 'Address': 'Address H'}</msg>
+<status status="PASS" starttime="20221009 21:33:08.367" endtime="20221009 21:33:08.370"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.367" endtime="20221009 21:33:08.370"/>
+</iter>
+<status status="PASS" starttime="20221009 21:33:08.305" endtime="20221009 21:33:08.370"/>
+</for>
+<status status="PASS" starttime="20221009 21:33:08.294" endtime="20221009 21:33:08.370"/>
+</kw>
+<kw name="Input form">
+<kw name="Select From List By Index" library="RPA.Browser.Selenium">
+<arg>${select_head}</arg>
+<arg>1</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<msg timestamp="20221009 21:33:08.372" level="INFO">Selecting options from selection list '//*[@id="head"]' by index 1.</msg>
+<status status="PASS" starttime="20221009 21:33:08.372" endtime="20221009 21:33:08.457"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:08.371" endtime="20221009 21:33:08.458"/>
+</kw>
+<status status="PASS" starttime="20221009 21:33:06.223" endtime="20221009 21:33:08.459"/>
+</test>
+<doc>Template robot main suite.</doc>
+<status status="PASS" starttime="20221009 21:33:05.523" endtime="20221009 21:33:08.462"/>
+</suite>
+<status status="PASS" starttime="20221009 21:33:05.520" endtime="20221009 21:33:08.465"/>
+</suite>
+<status status="PASS" starttime="20221009 21:33:05.495" endtime="20221009 21:33:08.468"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robocorp-Certificate">Robocorp-Certificate</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">Robocorp-Certificate.Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Tasks">Robocorp-Certificate.Tests.Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
